@@ -1,1 +1,20 @@
-Archivo para verificar la creacion
+Archivo para verificar la creación
+
+Pasos para subir cambios :D
+
+---Clonar el repositorio:
+git clone https://github.com/monfil13/tzcom.git
+
+---Entrar en el directorio del repositorio clonado:
+cd tzcom
+
+
+---Agregar archivos al índice de Git (si hiciste cambios):
+git add .
+
+---Realizar un commit con los cambios:
+git commit -m "Descripción de los cambios"
+
+
+---Subir los cambios al repositorio remoto (GitHub):
+git push origin master/main
