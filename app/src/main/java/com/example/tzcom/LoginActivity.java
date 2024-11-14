@@ -3,6 +3,7 @@ package com.example.tzcom;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,6 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailEditText;
     private EditText passwordEditText;
     private FirebaseAuth mAuth;
+    private ProgressBar progressBar;  // Barra de progreso
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
+        progressBar = findViewById(R.id.progressBar); // Inicializamos la barra de progreso
 
         findViewById(R.id.loginButton).setOnClickListener(v -> loginUser());
         findViewById(R.id.registerButton).setOnClickListener(v -> registerUser());
@@ -38,8 +41,14 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        // Mostrar el ProgressBar
+        progressBar.setVisibility(View.VISIBLE);
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
+                    // Ocultar el ProgressBar después de la tarea
+                    progressBar.setVisibility(View.GONE);
+
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Toast.makeText(LoginActivity.this, "¡Bienvenido, " + user.getEmail() + "!", Toast.LENGTH_SHORT).show();
@@ -60,8 +69,14 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        // Mostrar el ProgressBar
+        progressBar.setVisibility(View.VISIBLE);
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
+                    // Ocultar el ProgressBar después de la tarea
+                    progressBar.setVisibility(View.GONE);
+
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Toast.makeText(LoginActivity.this, "Usuario registrado: " + user.getEmail(), Toast.LENGTH_SHORT).show();

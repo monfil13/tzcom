@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/backgroundColor">
 
     <TextView
         android:id="@+id/welcomeText"
@@ -12,16 +13,18 @@
         android:layout_height="wrap_content"
         android:text="Bienvenido a Tezitecomelón!"
         android:textSize="24sp"
-        android:textColor="#000000"
+        android:textColor="@color/colorAccent"
         android:layout_marginBottom="20dp" />
 
-    <!-- Aquí está el botón de cerrar sesión con el ID correcto -->
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cerrar sesión"
-        android:background="@color/colorAccent"
-        android:textColor="#ffffff" />
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Botón de cerrar sesión" />
 
 </LinearLayout>
