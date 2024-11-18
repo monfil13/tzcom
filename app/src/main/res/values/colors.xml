@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Colores solicitados -->
-    <color name="black">#000000</color> <!-- Negro -->
-    <color name="white">#FFFFFF</color> <!-- Blanco -->
-    <color name="colorPrimary">#FF7043</color> <!-- Durazno claro -->
-    <color name="colorAccent">#9C1C1C</color> <!-- Vino oscuro -->
-    <color name="colorSkin">#F2C2A1</color> <!-- Color piel (beige claro) -->
-    <color name="backgroundColor">#FFF3E0</color> <!-- Fondo color durazno claro -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
 </resources>
