@@ -23,44 +23,38 @@ public class InicioActivity extends AppCompatActivity {
     GoogleSignInClient gsc;
     Button botonLogout;
     TextView etiquetaNombre;
-    Switch switchTheme; // Para cambiar de tema
+    Switch switchTheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio); // Inicializa el layout
+        setContentView(R.layout.activity_inicio);
 
         // Inicializamos las vistas
         etiquetaNombre = findViewById(R.id.etiquetaNombre);
         botonLogout = findViewById(R.id.botonLogout);
-        switchTheme = findViewById(R.id.switchTheme); // Añadimos el switch para cambiar de tema
+        switchTheme = findViewById(R.id.switchTheme);
 
-        // Inicializamos Google SignIn
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
 
-        // Obtenemos la cuenta de Google si está firmada
         GoogleSignInAccount act = GoogleSignIn.getLastSignedInAccount(this);
         if (act != null) {
             String nombreUsuario = act.getDisplayName();
             etiquetaNombre.setText(nombreUsuario);
         }
 
-        // Configuramos el switch para alternar el tema
         boolean isNightMode = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES;
-        switchTheme.setChecked(isNightMode); // Establece el estado inicial del switch
+        switchTheme.setChecked(isNightMode);
 
         switchTheme.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                // Modo oscuro
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
-                // Modo claro
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         });
 
-        // Configuramos el botón de logout
         botonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
