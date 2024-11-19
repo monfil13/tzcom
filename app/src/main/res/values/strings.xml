@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TzComelón</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="server_client_id">950923851167-e0ndkupkkbidhftc8i3189op7pk6ack4.apps.googleusercontent.com</string>
+
 </resources>

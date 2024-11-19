@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="skin_tone">#F1C27D</color>
+    <color name="wine">#9B1B30</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="red">#F44336</color>
+    <color name="mustard">#FFB300</color>
+    <color name="peach">#FFDAB9</color>
 </resources>
