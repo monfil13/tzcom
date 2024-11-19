@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center"
-    android:background="@color/peach"
     android:id="@+id/main"
     tools:context=".MainActivity">
 
@@ -16,26 +15,24 @@
         android:layout_height="wrap_content"
         android:text="¡Bienvenido! 😋"
         android:textSize="40sp"
-        android:textColor="@color/wine"
         android:textAlignment="center"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/tzcom3Image"
         android:layout_width="450dp"
         android:layout_height="450dp"
-        android:src="@drawable/tzcom3"
-        android:contentDescription="Imagen Tzcom3"
-        android:layout_marginBottom="20dp" />
+        android:src="@drawable/tzcom3" />
 
     <Button
         android:id="@+id/botonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Inicia sesión con Google"
-        android:textColor="@android:color/white"
-        android:background="@color/wine"
+        android:background="@drawable/rounded_button"
         android:textSize="16sp"
+        android:textColor="@color/white"
         android:layout_marginBottom="20dp" />
 
     <ImageView
