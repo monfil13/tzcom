@@ -25,5 +25,17 @@
             android:name=".InicioActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".ResenasActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".FavoritosActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ConfiActivity"
+            android:exported="true">
+        </activity>
     </application>
 </manifest>
