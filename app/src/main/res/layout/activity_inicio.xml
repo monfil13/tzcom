@@ -2,46 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp"
-    android:id="@+id/activity_inicio"
-    tools:context=".InicioActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/etiquetaNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp" />
+    <!-- Contenedor de Fragmentos donde se cargarán los fragmentos -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
-    <TextView
-        android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
+    <!-- BottomNavigationView para la navegación -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¡Ya eres parte de la comunidad teziutecomelona!"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:textStyle="italic"
-        android:layout_marginBottom="20dp" />
-
-    <Switch
-        android:id="@+id/switchTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Modo Oscuro"
-        android:layout_marginTop="20dp"
-        android:padding="16dp"
-        android:layout_gravity="center" />
-
-    <Button
-        android:id="@+id/botonLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cerrar sesión"
-        android:background="@drawable/rounded_button"
-        android:textColor="@color/white"/>
+        android:background="@color/wine"
+        app:menu="@menu/nav_menu" />
 </LinearLayout>

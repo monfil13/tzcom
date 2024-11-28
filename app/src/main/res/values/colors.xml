@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Colores comunes -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="skin_tone">#F1C27D</color>
@@ -8,4 +9,15 @@
     <color name="red">#F44336</color>
     <color name="mustard">#FFB300</color>
     <color name="peach">#FFDAB9</color>
+
+    <!-- Colores para el modo claro -->
+    <color name="background_light">#FFFFFF</color>
+    <color name="text_light">#000000</color>
+    <color name="button_light">#FFEB3B</color>
+
+    <!-- Colores para el modo oscuro -->
+    <color name="background_dark">#121212</color>
+    <color name="text_dark">#FFFFFF</color>
+    <color name="button_dark">#9B1B30</color>
 </resources>
+

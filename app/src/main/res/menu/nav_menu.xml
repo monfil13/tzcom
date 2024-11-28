@@ -3,21 +3,18 @@
 
     <item
         android:id="@+id/nav_inicio"
-        android:title="Inicio"
-        android:icon="@drawable/home" />
-
+        android:icon="@drawable/home"
+        android:title="Inicio" />
     <item
         android:id="@+id/nav_resenas"
-        android:title="Reseñas"
-        android:icon="@drawable/book" />
-
+        android:icon="@drawable/book"
+        android:title="Reseñas" />
     <item
         android:id="@+id/nav_favoritos"
-        android:title="Favoritos"
-        android:icon="@drawable/love" />
-
+        android:icon="@drawable/love"
+        android:title="Favoritos" />
     <item
         android:id="@+id/nav_confi"
-        android:title="Configuración"
-        android:icon="@drawable/confi" />
+        android:icon="@drawable/confi"
+        android:title="Configuración" />
 </menu>
