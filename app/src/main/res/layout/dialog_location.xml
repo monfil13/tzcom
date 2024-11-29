@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Espera... estamos detectando tu ubicación"
-        android:textColor="@color/wine"
         android:textSize="18sp"
         android:paddingBottom="16dp" />
 

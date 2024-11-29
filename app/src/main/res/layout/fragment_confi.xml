@@ -1,51 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:gravity="center"
     android:padding="16dp">
 
-    <!-- Texto que muestra el nombre del usuario -->
-    <TextView
-        android:id="@+id/etiquetaNombre"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center">
 
-    <!-- Texto de bienvenida -->
-    <TextView
-        android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¡Ya eres parte de la comunidad!"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:textStyle="italic"
-        android:layout_marginBottom="20dp" />
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/user"/>
 
-    <!-- Switch para cambiar el modo oscuro -->
-    <Switch
-        android:id="@+id/switchTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Modo Oscuro"
-        android:layout_marginTop="20dp"
-        android:padding="16dp"
-        android:layout_gravity="center" />
+        <TextView
+            android:id="@+id/etiquetaNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginBottom="20dp" />
 
-    <!-- Botón de Logout -->
-    <Button
-        android:id="@+id/botonLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cerrar sesión"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button" />
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡Ya eres parte de la comunidad teziutecomelona!"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textStyle="italic"
+            android:layout_marginBottom="20dp" />
 
-</LinearLayout>
+        <Switch
+            android:id="@+id/switchTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modo Oscuro"
+            android:layout_marginTop="20dp"
+            android:padding="16dp"
+            android:layout_gravity="center" />
 
+        <Button
+            android:id="@+id/botonLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cerrar sesión"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button" />
+    </LinearLayout>
+
+</FrameLayout>
