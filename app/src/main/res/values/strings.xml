@@ -2,5 +2,5 @@
     <string name="app_name">TzComelón</string>
     <string name="hello_blank_fragment">Fragmento en Blanco :D</string>
     <string name="server_client_id">950923851167-e0ndkupkkbidhftc8i3189op7pk6ack4.apps.googleusercontent.com</string>
-
+    <string name="google_maps_key">AIzaSyDCOBYg8tY3an4wsmEuUz--HQ4_iEInwQM-MM</string>
 </resources>
