@@ -1,10 +1,2 @@
 <resources>
-    <string name="app_name">TzComelón</string>
-    <string name="hello_blank_fragment">Fragmento en Blanco :D</string>
-
-    <!-- ID del cliente para Google Sign-In -->
-    <string name="server_client_id">950923851167-e0ndkupkkbidhftc8i3189op7pk6ack4.apps.googleusercontent.com</string>
-
-    <!-- Clave de API de Google Maps -->
-    <string name="google_maps_key">AIzaSyBVRj2vT56vFer3yYn-8EaX2NJozxKGRPE</string>
 </resources>
