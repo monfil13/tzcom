@@ -1,18 +1,28 @@
 package com.example.tzcom;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+
 public class InicioFragment extends Fragment {
+
+    private FusedLocationProviderClient fusedLocationClient;
+    private RecyclerView recyclerView;
 
     public InicioFragment() {
         // Constructor vacío necesario para Fragment
@@ -25,7 +35,7 @@ public class InicioFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_inicio, container, false);
 
         // Inicializar RecyclerView
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Datos de comida y sus imágenes
@@ -44,7 +54,13 @@ public class InicioFragment extends Fragment {
         adapter.setOnItemClickListener(position -> {
             // Mostrar el DialogFragment de "Espera...estamos detectando tu ubicación"
             showLocationDialog();
+
+            // Detectar ubicación
+            getLocation();
         });
+
+        // Inicializar FusedLocationProviderClient
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
 
         return view;
     }
@@ -54,8 +70,28 @@ public class InicioFragment extends Fragment {
         LocationDialogFragment dialog = new LocationDialogFragment();
         dialog.show(getParentFragmentManager(), "locationDialog");
 
-        // Cerrar el diálogo después de 10 segundos
-        new android.os.Handler().postDelayed(() -> dialog.dismiss(), 10000);
+        // Cerrar el diálogo después de 5 segundos
+        new Handler().postDelayed(() -> dialog.dismiss(), 5000);
+    }
+
+    // Método para obtener la ubicación actual
+    private void getLocation() {
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Solicitar permisos si no están concedidos
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            return;
+        }
+
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(getActivity(), location -> {
+                    if (location != null) {
+                        // Aquí puedes usar la ubicación para realizar otras acciones si es necesario
+                        double latitude = location.getLatitude();
+                        double longitude = location.getLongitude();
+                        // Puedes agregar aquí lógica adicional para usar la ubicación
+                    }
+                });
     }
 
     // Clase interna para el DialogFragment que muestra el mensaje
@@ -71,14 +107,24 @@ public class InicioFragment extends Fragment {
             // Inflar el layout del diálogo
             View view = inflater.inflate(R.layout.dialog_location, container, false);
 
-            TextView tvMensaje = view.findViewById(R.id.tvMensaje);
-            ImageView ivUbicacion = view.findViewById(R.id.ivUbicacion);
-
-            // Establecer texto y la imagen SVG
-            tvMensaje.setText("Espera... estamos detectando tu ubicación");
-            ivUbicacion.setImageResource(R.drawable.ubication); // Asegúrate de tener la imagen SVG en drawable
-
+            // Establecer el mensaje si es necesario
             return view;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        // Verifica si el permiso fue concedido
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permiso concedido, obtener la ubicación
+                getLocation();
+            } else {
+                // Permiso denegado
+                Toast.makeText(getContext(), "Permiso de ubicación denegado", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
