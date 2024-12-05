@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Campo para editar el nombre del negocio -->
+    <EditText
+        android:id="@+id/etBusinessName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Negocio"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Campo para editar el texto de la reseña -->
+    <EditText
+        android:id="@+id/etResenaText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escribe tu reseña"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:inputType="textMultiLine"/>
+
+    <!-- Botón para guardar la reseña editada -->
+    <Button
+        android:id="@+id/btnSaveResena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:text="Guardar"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>
