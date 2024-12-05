@@ -55,13 +55,5 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp" />
 
-        <Button
-            android:id="@+id/btnResena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Agregar Reseña"
-            android:layout_marginLeft="16dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp" />
     </LinearLayout>
 </LinearLayout>

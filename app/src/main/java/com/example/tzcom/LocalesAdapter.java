@@ -83,6 +83,8 @@ public class LocalesAdapter extends RecyclerView.Adapter<LocalesAdapter.ViewHold
                 editor.putString(restaurante.getNombre() + "_dias", restaurante.getDias());
                 editor.putInt(restaurante.getNombre() + "_imagen", restaurante.getImagen());
                 editor.apply();
+
+                Toast.makeText(v.getContext(), "Ahora es un restaurante favorito!", Toast.LENGTH_SHORT).show();
             }
 
             // Actualizar la vista

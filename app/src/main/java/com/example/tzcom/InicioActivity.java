@@ -50,7 +50,7 @@ public class InicioActivity extends AppCompatActivity {
         transaction.commit(); // Ejecuta la transacción
     }
 
-    
+
     @Override
     public void onBackPressed() {
         // Verificamos si el fragment manager tiene fragmentos en el back stack
