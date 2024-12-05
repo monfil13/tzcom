@@ -46,6 +46,21 @@ public class InicioActivity extends AppCompatActivity {
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragmentContainer, fragment); // Reemplaza el fragmento actual
+        transaction.addToBackStack(null);  // Añade el fragmento al back stack
         transaction.commit(); // Ejecuta la transacción
     }
+
+    
+    @Override
+    public void onBackPressed() {
+        // Verificamos si el fragment manager tiene fragmentos en el back stack
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            // Si hay fragmentos en la pila de retroceso, hacemos pop al último fragmento
+            getSupportFragmentManager().popBackStack();
+        } else {
+            // Si no hay fragmentos en el back stack, llamamos al comportamiento normal
+            super.onBackPressed();
+        }
+    }
+
 }

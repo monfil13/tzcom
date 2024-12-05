@@ -1,7 +1,5 @@
 package com.example.tzcom;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -9,19 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
-
 public class InicioFragment extends Fragment {
 
-    private FusedLocationProviderClient fusedLocationClient;
     private RecyclerView recyclerView;
 
     public InicioFragment() {
@@ -40,7 +32,7 @@ public class InicioFragment extends Fragment {
 
         // Datos de comida y sus imágenes
         String[] comidas = {
-                "Tacos al pastor", "Tacos árabes", "Antojitos", "Mariscos", "Comida Corrida"
+                "Tacos Al Pastor", "Tacos Árabes", "Antojitos", "Mariscos", "Comida Corrida"
         };
         int[] imagenes = {
                 R.drawable.pastor, R.drawable.arabe, R.drawable.antojitos, R.drawable.mariscos, R.drawable.corrida
@@ -55,12 +47,12 @@ public class InicioFragment extends Fragment {
             // Mostrar el DialogFragment de "Espera...estamos detectando tu ubicación"
             showLocationDialog();
 
-            // Detectar ubicación
-            getLocation();
+            // Dependiendo de la comida seleccionada, cargar el fragmento correspondiente
+            String comidaSeleccionada = comidas[position];
+            new Handler().postDelayed(() -> {
+                navigateToLocalesFragment(comidaSeleccionada);
+            }, 5000); // Simular un delay de 5 segundos
         });
-
-        // Inicializar FusedLocationProviderClient
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
 
         return view;
     }
@@ -74,24 +66,16 @@ public class InicioFragment extends Fragment {
         new Handler().postDelayed(() -> dialog.dismiss(), 5000);
     }
 
-    // Método para obtener la ubicación actual
-    private void getLocation() {
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Solicitar permisos si no están concedidos
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-            return;
-        }
+    // Navegar al LocalesFragment con el tipo de comida seleccionado
+    private void navigateToLocalesFragment(String comidaSeleccionada) {
+        // Crear el fragmento LocalesFragment con el tipo de comida
+        LocalesFragment localesFragment = new LocalesFragment(comidaSeleccionada);
 
-        fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(getActivity(), location -> {
-                    if (location != null) {
-                        // Aquí puedes usar la ubicación para realizar otras acciones si es necesario
-                        double latitude = location.getLatitude();
-                        double longitude = location.getLongitude();
-                        // Puedes agregar aquí lógica adicional para usar la ubicación
-                    }
-                });
+        // Cambiar de fragmento
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentContainer, localesFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     // Clase interna para el DialogFragment que muestra el mensaje
@@ -109,22 +93,6 @@ public class InicioFragment extends Fragment {
 
             // Establecer el mensaje si es necesario
             return view;
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        // Verifica si el permiso fue concedido
-        if (requestCode == 1) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permiso concedido, obtener la ubicación
-                getLocation();
-            } else {
-                // Permiso denegado
-                Toast.makeText(getContext(), "Permiso de ubicación denegado", Toast.LENGTH_SHORT).show();
-            }
         }
     }
 }
