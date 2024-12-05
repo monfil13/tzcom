@@ -19,8 +19,10 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -31,6 +33,7 @@ public class ResenasFragment extends Fragment {
     private Button guardarResenaButton;
     private RecyclerView recyclerView;
     private ResenasAdapter resenasAdapter;
+    private List<String> arregloLocalesList;
 
     public ResenasFragment() {
         // Constructor vacío requerido
@@ -54,6 +57,9 @@ public class ResenasFragment extends Fragment {
         // Configuramos el RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        // Cargamos el arreglo de nombres de locales
+        cargarArregloLocales();
+
         // Configuramos el botón para guardar la reseña
         guardarResenaButton.setOnClickListener(v -> guardarResena());
 
@@ -63,10 +69,26 @@ public class ResenasFragment extends Fragment {
         return rootView;
     }
 
+    private void cargarArregloLocales() {
+        // Obtenemos el arreglo de nombres de locales desde los recursos
+        String[] arregloLocales = getResources().getStringArray(R.array.arregloLocales);
+        arregloLocalesList = new ArrayList<>();
+        for (String local : arregloLocales) {
+            arregloLocalesList.add(local.trim().toLowerCase());  // Convertimos a minúsculas para la comparación
+        }
+    }
+
     private void guardarResena() {
         // Obtenemos el nombre del local y el contenido de la reseña
-        String nombreLocal = nombreLocalEditText.getText().toString();
+        String nombreLocal = nombreLocalEditText.getText().toString().trim().toLowerCase(); // Convertimos a minúsculas para comparar
         String contenido = contenidoEditText.getText().toString();
+
+        // Verificamos si el nombre del local es válido
+        if (!arregloLocalesList.contains(nombreLocal)) {
+            // Si no está en el arreglo, mostramos un mensaje y no guardamos la reseña
+            Toast.makeText(getActivity(), "El nombre del local es incorrecto", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Recuperamos el nombre del usuario desde SharedPreferences
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getActivity().MODE_PRIVATE);
@@ -116,7 +138,9 @@ public class ResenasFragment extends Fragment {
                         QuerySnapshot querySnapshot = task.getResult();
                         if (querySnapshot != null) {
                             // Crear el adaptador con los resultados de Firestore
-                            resenasAdapter = new ResenasAdapter(querySnapshot.getDocuments());
+                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getActivity().MODE_PRIVATE);
+                            String usuario = sharedPreferences.getString("userName", "UsuarioEjemplo");  // Default a "UsuarioEjemplo"
+                            resenasAdapter = new ResenasAdapter(querySnapshot.getDocuments(), usuario);
                             recyclerView.setAdapter(resenasAdapter);
                         }
                     } else {

@@ -34,8 +34,7 @@ public class FavoritosFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerViewFavoritos);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        listaFavoritos = obtenerFavoritos();  // Método que obtiene la lista de favoritos desde SharedPreferences
-
+        listaFavoritos = obtenerFavoritos();
         // Crear el adaptador y asignarlo al RecyclerView
         adapter = new LocalesAdapter(listaFavoritos, true); // true porque es el fragmento de favoritos
         recyclerView.setAdapter(adapter);
@@ -43,7 +42,6 @@ public class FavoritosFragment extends Fragment {
         return view;
     }
 
-    // Método que obtiene los restaurantes favoritos de SharedPreferences
     private ArrayList<Restaurante> obtenerFavoritos() {
         SharedPreferences prefs = getContext().getSharedPreferences("Favoritos", Context.MODE_PRIVATE);
         ArrayList<Restaurante> favoritos = new ArrayList<>();
@@ -66,9 +64,7 @@ public class FavoritosFragment extends Fragment {
         return favoritos;
     }
 
-    // Método para actualizar el RecyclerView después de eliminar un favorito
     public void actualizarLista() {
         listaFavoritos = obtenerFavoritos();
-        adapter.actualizarLista(listaFavoritos); // Este método lo tendrás que implementar en tu adaptador
-    }
+        adapter.actualizarLista(listaFavoritos);  }
 }

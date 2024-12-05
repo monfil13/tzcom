@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="m3_comp_date_picker_modal_header_container_height">24dp</dimen>
+
+</resources>

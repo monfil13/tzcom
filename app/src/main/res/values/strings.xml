@@ -15,4 +15,107 @@
     <string name="edit_resena_title">Editar Reseña</string>
     <string name="edit_resena_hint">Escribe aquí tu reseña</string>
 
+    <string-array name="arregloLocales">
+        <item>La Piñita Pastorera</item>
+        <item>Salsas y Sazonadores</item>
+        <item>El Cilantro Mágico</item>
+        <item>La Piña del Sabor</item>
+        <item>Salsas y Cebollas</item>
+        <item>La Salsa Roja de La Casa</item>
+        <item>El Pastor Con Todo</item>
+        <item>El Cilantro En Fuego</item>
+        <item>La Piña Sazonada</item>
+        <item>La Cebolla En La Plancha</item>
+        <item>La Salsa Caliente</item>
+        <item>El Pastor y Sus Amigos</item>
+        <item>Cilantro y Picante</item>
+        <item>La Fiesta del Pastor</item>
+        <item>Cebolla y Sazón</item>
+        <item>Salsa y Piña</item>
+        <item>La Sazonada</item>
+        <item>El Cilantro Sabroso</item>
+        <item>La Salsa en Su Punto</item>
+        <item>Piña Asada y Pastor</item>
+        <item>Tacos Árabes El Halal</item>
+        <item>Tacos Árabes La Mezcla</item>
+        <item>Tacos Árabes La Esquina del Shawarma</item>
+        <item>Tacos Árabes El Zoco</item>
+        <item>Tacos Árabes Sabe a Cordero</item>
+        <item>Tacos Árabes El Rincón Árabe</item>
+        <item>Tacos Árabes La Casa del Shawarma</item>
+        <item>Tacos Árabes El Oasis</item>
+        <item>Tacos Árabes La Duna</item>
+        <item>Tacos Árabes El Tajín</item>
+        <item>Tacos Árabes La Llama</item>
+        <item>Tacos Árabes El Jabali</item>
+        <item>Tacos Árabes El Zaatar</item>
+        <item>Tacos Árabes La Cueva del Shawarma</item>
+        <item>Tacos Árabes El Cedro</item>
+        <item>Tacos Árabes El Rastro</item>
+        <item>Tacos Árabes La Pita</item>
+        <item>Tacos Árabes El Sabor del Medio Oriente</item>
+        <item>Tacos Árabes El Bastión</item>
+        <item>Tacos Árabes La Primavera</item>
+        <item>Mariscos El Delfín</item>
+        <item>Mariscos La Ola</item>
+        <item>Mariscos El Pez Vela</item>
+        <item>Mariscos La Perla</item>
+        <item>Mariscos El Tiburón</item>
+        <item>Mariscos El Camarón</item>
+        <item>Mariscos Los Pescadores</item>
+        <item>Mariscos La Langosta</item>
+        <item>Mariscos La Sirenita</item>
+        <item>Mariscos El Coral</item>
+        <item>Mariscos El Bahía</item>
+        <item>Mariscos La Tortuga</item>
+        <item>Mariscos La Isla</item>
+        <item>Mariscos El Atún</item>
+        <item>Mariscos La Bahía</item>
+        <item>Mariscos El Mero Mero</item>
+        <item>Mariscos Los Buzos</item>
+        <item>Mariscos El Acuario</item>
+        <item>Mariscos La Pescadora</item>
+        <item>Mariscos El Faro</item>
+        <item>Comida Corrida El Recuerdo</item>
+        <item>Comida Corrida La Comadre</item>
+        <item>Comida Corrida Los Tres Moles</item>
+        <item>Comida Corrida El Sol</item>
+        <item>Comida Corrida El Buen Gusto</item>
+        <item>Comida Corrida El Rancho</item>
+        <item>Comida Corrida La Tía</item>
+        <item>Comida Corrida Los Abuelos</item>
+        <item>Comida Corrida El Comal</item>
+        <item>Comida Corrida La Casa del Sabor</item>
+        <item>Comida Corrida Los Tesoros</item>
+        <item>Comida Corrida La Comida de Mamá</item>
+        <item>Comida Corrida El Padrino</item>
+        <item>Comida Corrida La Familia</item>
+        <item>Comida Corrida La Cocina de la Abuela</item>
+        <item>Comida Corrida El Sabor del Pueblo</item>
+        <item>Comida Corrida El Tenedor</item>
+        <item>Comida Corrida Los Hermanos</item>
+        <item>Comida Corrida La Mariscada</item>
+        <item>Comida Corrida El Arriero</item>
+        <item>Antojitos La Doña</item>
+        <item>Antojitos El Chilito</item>
+        <item>Antojitos El Charro</item>
+        <item>Antojitos La Chabelita</item>
+        <item>Antojitos El Fogón</item>
+        <item>Antojitos La Cazuela</item>
+        <item>Antojitos La Comadre</item>
+        <item>Antojitos El Güero</item>
+        <item>Antojitos El Baile</item>
+        <item>Antojitos La Canasta</item>
+        <item>Antojitos El Saborcito</item>
+        <item>Antojitos La Vaquita</item>
+        <item>Antojitos La Abuelita</item>
+        <item>Antojitos El Jarocho</item>
+        <item>Antojitos La Poblana</item>
+        <item>Antojitos El Muelle</item>
+        <item>Antojitos La Charra</item>
+        <item>Antojitos El Ranchito</item>
+        <item>Antojitos La Fiesta</item>
+        <item>Antojitos La Trajinera</item>
+    </string-array>
+
 </resources>
